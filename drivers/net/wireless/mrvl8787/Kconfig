@@ -1,0 +1,28 @@
+config MRVL8787
+	bool "Mrvell 8787 wireless cards support"
+	depends on MMC
+	select WIRELESS_EXT
+	select WEXT_PRIV
+	---help---
+	  This module adds support for wireless adapters based on
+	  Mrvell 87879 chipset.
+
+	  This driver uses the kernel's wireless extensions subsystem.
+
+	  If you choose to build a module, it'll be called dhd. Say M if
+	  unsure.
+
+config MRVL8787_WLAN
+	depends on MRVL8787
+	tristate "Mrvell 8787 WIFI support"
+	default m
+
+config MRVL8787_BT
+	depends on MRVL8787
+	tristate "Mrvell 8787 BT   support"
+	default m
+
+config MRVL8787_SUSPEND_KEEPPOWER
+	depends on MRVL8787
+	bool "Mrvell 8787 suspend keep power"
+	default n
