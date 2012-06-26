@@ -103,7 +103,7 @@ static ssize_t s3c_bat_store(struct device *dev,
 
 static void polling_timer_func(unsigned long unused);
 //extern void mrvl8787_power_set(unsigned mrvl_module_onoff,unsigned wifi_onoff,unsigned bt_onoff);
-#define FAKE_BAT_LEVEL  80
+#define FAKE_BAT_LEVEL  100
 
 static struct device *dev;
 static int s3c_battery_initial;
@@ -810,6 +810,10 @@ if(skip_data != 1)
 #endif
 
 //  s3c_bat_info.bat_info.batt_vol = adc_read;
+
+#ifdef CONDIF_BATTERY_S3C_FAKE
+  s3c_bat_info.bat_info.level = FAKE_BAT_LEVEL;
+#endif
 
   memcpy(&pre_info, &(s3c_bat_info.bat_info), sizeof(struct battery_info));
   pre_info.batt_id = 1;
