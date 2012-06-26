@@ -811,7 +811,7 @@ if(skip_data != 1)
 
 //  s3c_bat_info.bat_info.batt_vol = adc_read;
 
-#ifdef CONDIF_BATTERY_S3C_FAKE
+#ifdef CONFIG_BATTERY_S3C_FAKE
   s3c_bat_info.bat_info.level = FAKE_BAT_LEVEL;
 #endif
 

@@ -283,7 +283,9 @@ static void suspend(struct work_struct *work)
 	}
 
 //Apollo +
-//  return;
+#ifdef CONFIG_BATTERY_S3C_FAKE
+  return;
+#endif
 #if defined(CONFIG_S5PV210_S9) || defined(CONFIG_S5PV210_A9) 
   printk("suspend usbhub_power 0 start");
   tp_power(0);

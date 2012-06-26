@@ -1134,6 +1134,7 @@ void usb_host_power(int onoff)
 	gpio_direction_output(GPIO_USB_5V, onoff);
 	gpio_free(GPIO_USB_5V);
 #endif
+printk("usb_host_power %d\n", onoff);
 }
 EXPORT_SYMBOL(usb_host_power);
 
@@ -1168,6 +1169,7 @@ static int skdv210_backlight_on(struct platform_device *pdev)
   msleep(100);
   tp_power(1);
 #endif
+printk("skdv210_backlight_on ok\n");
 	return 0;
 }
 
